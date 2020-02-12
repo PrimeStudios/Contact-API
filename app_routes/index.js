@@ -1,10 +1,10 @@
-const discord = require('../app_config/discord.json');
+const hookConfig = require('../app_config/hook.json');
 const express = require('express');
 const request = require('request-promise');
 const router = express.Router();
 const sanitize = require('sanitize')();
 
-const hook = discord.hook;
+const hook = `${hookConfig.protocol}://${hookConfig.host}${hookConfig.route}`;
 
 router.post('/', async function inquire (req, res) {
 	return new Promise((resolve, reject) => {
@@ -132,7 +132,7 @@ router.post('/', async function inquire (req, res) {
 			}
 		})
 		.catch((err) => {
-							console.log(err);
+			console.log(err);
 			res.status(400).json({Error: err.message});
 		});
 });
