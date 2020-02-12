@@ -19,17 +19,17 @@ router.post('/', async function inquire (req, res) {
 		};
 		resolve(inquiry);
 	}).then((inquiry) => {
-		var requirements;
+		var requirements = '';
 		if (inquiry.webDesign) {
-			requirements += 'Web Development\n';
+			requirements += 'Web Development \\n ';
 		}
 		if (inquiry.sysAdmin) {
-			requirements += 'System Administration\n';
+			requirements += 'System Administration \\n ';
 		}
 		if (inquiry.seo) {
-			requirements += 'Search Engine Optimization\n';
+			requirements += 'Search Engine Optimization \\n ';
 		}
-		if (!requirements) {
+		if (requirements.length < 1) {
 			requirements = 'None Specified';
 		}
 		inquiry.requirements = requirements;
@@ -49,7 +49,7 @@ router.post('/', async function inquire (req, res) {
 			const year = time.getFullYear();
 			const month = ('0' + (time.getMonth() + 1)).slice(-2);
 			const date = ('0' + time.getDate()).slice(-2);
-			const hour = time.getHours();
+			const hour = time.getHours() + 5;
 			const minute = time.getMinutes();
 			const second = time.getSeconds();
 			const timestamp = `${year}-${month}-${date}T${hour}:${minute}:${second}.000Z`;
@@ -86,7 +86,7 @@ router.post('/', async function inquire (req, res) {
 				"inline": true
 			},
 			{
-				"name": "budget",
+				"name": "Budget",
 				"value": "${inquiry.budget}",
 				"inline": true
 			},

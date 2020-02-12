@@ -1,7 +1,7 @@
 const appConfig = require('./app_config/app.json');
 const express = require('express');
 const helmet = require('helmet');
-const inquire = require('./app_routes/index')
+const inquire = require('./app_routes/index');
 const app = express();
 
 app.port = appConfig.port;
