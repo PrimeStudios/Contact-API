@@ -9,13 +9,13 @@ const hook = `${hookConfig.protocol}://${hookConfig.host}${hookConfig.route}`;
 router.post('/', async function inquire (req, res) {
 	return new Promise((resolve, reject) => {
 		var inquiry = {
-			name: sanitize.value(req.query.name, 'str'),
-			email: sanitize.value(req.query.email, 'str'),
-			webDesign: sanitize.value(req.query.webdesign, 'int'),
-			sysAdmin: sanitize.value(req.query.sysadmin, 'int'),
-			seo: sanitize.value(req.query.seo, 'int'),
-			budget: sanitize.value(req.query.budget, 'str'),
-			comments: sanitize.value(req.query.comments, 'str')
+			name: sanitize.value(req.body.name, 'str'),
+			email: sanitize.value(req.body.email, 'str'),
+			webDesign: sanitize.value(req.body.webdesign, 'int'),
+			sysAdmin: sanitize.value(req.body.sysadmin, 'int'),
+			seo: sanitize.value(req.body.seo, 'int'),
+			budget: sanitize.value(req.body.budget, 'str'),
+			comments: sanitize.value(req.body.comments, 'str')
 		};
 		resolve(inquiry);
 	}).then((inquiry) => {

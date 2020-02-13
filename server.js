@@ -1,4 +1,5 @@
 const appConfig = require('./app_config/app.json');
+const cors = require('./app_modules/cors');
 const express = require('express');
 const helmet = require('helmet');
 const inquire = require('./app_routes/index');
@@ -6,6 +7,7 @@ const app = express();
 
 app.port = appConfig.port;
 
+app.use(cors);
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(helmet());
