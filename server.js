@@ -16,9 +16,6 @@ app.use(helmet());
 
 app.use('/', inquire);
 
-https.createServer({
-	key: fs.readFileSync('../xampp/apache/ssl/privatekey.pem'),
-	cert: fs.readFileSync('../xampp/apache/ssl/primestudios_co.crt')
-}, app).listen(app.port, function appListener () {
+app.listen(app.port, function appListener () {
 	console.log(`Prime Studios Contact API listening on port ${app.port}.`);
 });
