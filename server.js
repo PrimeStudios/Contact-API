@@ -1,7 +1,9 @@
 const appConfig = require('./app_config/app.json');
 const cors = require('./app_modules/cors');
 const express = require('express');
+const fs = require('fs');
 const helmet = require('helmet');
+const https = require('https');
 const inquire = require('./app_routes/index');
 const app = express();
 
@@ -14,6 +16,9 @@ app.use(helmet());
 
 app.use('/', inquire);
 
-app.listen(app.port, function appListener () {
+https.createServer({
+	key: fs.readFileSync('../xampp/apache/ssl/privatekey.pem'),
+	cert: fs.readFileSync('../xampp/apache/ssl/primestudios_co.crt')
+}, app).listen(app.port, function appListener () {
 	console.log(`Prime Studios Contact API listening on port ${app.port}.`);
 });
