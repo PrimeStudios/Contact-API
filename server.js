@@ -24,6 +24,6 @@ app.use('/', inquire);
 
 const server = https.createServer(options, app);
 
-app.listen(app.port, function appListener () {
+server.listen(app.port, () => {
 	console.log(`Prime Studios Contact API listening on port ${app.port}.`);
 });
