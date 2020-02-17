@@ -31,7 +31,7 @@ Configuration can be found in the [`/app_config/`](./app_config) directory:
 
 ```JSON
 {
-	"port": 4000 // Enter any available port
+	"interval": 30000 // Enter a valid interval (in milliseconds)
 }
 ```
 

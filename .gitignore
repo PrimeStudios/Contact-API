@@ -1,2 +1,3 @@
 /node_modules/
+/app_config/database.json
 /app_config/hook.json
