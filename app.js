@@ -1,6 +1,6 @@
 const appConfig = require('./app_config/app.json');
 const database = require('./app_modules/database');
-const hookConfig = require('../app_config/hook.json');
+const hookConfig = require('./app_config/hook.json');
 const hook = `${hookConfig.protocol}://${hookConfig.host}${hookConfig.route}`;
 const request = require('request-promise');
 const sanitize = require('sanitize')();
