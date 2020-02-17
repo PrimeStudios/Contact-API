@@ -5,6 +5,8 @@ const hook = `${hookConfig.protocol}://${hookConfig.host}${hookConfig.route}`;
 const request = require('request-promise');
 const sanitize = require('sanitize')();
 
+var id;
+
 setInterval(async () => {
 	try {
 		let unprocessedRequests = await database('SELECT * FROM requests WHERE processed = 0');
@@ -19,6 +21,7 @@ setInterval(async () => {
 					budget: sanitize.value(unprocessedRequests[0].budget, 'str'),
 					comments: sanitize.value(unprocessedRequests[0].comments, 'str')
 				};
+				id = unprocessedRequests[0].id;
 				resolve(inquiry);
 			}).then((inquiry) => {
 				var requirements = '';
@@ -132,6 +135,9 @@ setInterval(async () => {
 					} else {
 						throw err;
 					}
+				})
+				.then((state) => {
+					return database(`UPDATE requests SET processed = 1 WHERE id = ${id}`);
 				})
 				.catch((err) => {
 					throw err;
