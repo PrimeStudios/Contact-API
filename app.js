@@ -66,6 +66,8 @@ setInterval(async () => {
 					if (inquiry.name && inquiry.email) {
 						return inquiry;
 					} else {
+						database(`UPDATE requests SET processed = 1 WHERE id = ${id}`);
+
 						const err = new Error('Missing Client Information');
 
 						throw err;
