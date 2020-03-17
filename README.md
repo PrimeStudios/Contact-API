@@ -1,5 +1,7 @@
 # Prime Studios Contact API
 
+[![CodeFactor](https://www.codefactor.io/repository/github/primestudios/contact-api/badge)](https://www.codefactor.io/repository/github/primestudios/contact-api)
+
 ## Overview
 
 A [Node.js](https://nodejs.org/) application that handles contact inquires made on the [Prime Studios Contact Page](https://primestudios.co/contact/) using [Express.js](https://expressjs.com/) and [request-promise](https://github.com/request/request-promise).
