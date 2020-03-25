@@ -19,7 +19,7 @@
 	},
 	"homepage": "https://github.com/TheBillyIsMe/Prime-Contact-API#readme",
 	"dependencies": {
-		"helmet": "^3.21.3",
+		"helmet": "^3.22.0",
 		"mysql": "^2.18.1",
 		"request": "^2.88.2",
 		"request-promise": "^4.2.5",
