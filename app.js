@@ -56,7 +56,7 @@ setInterval(async () => {
 					const date = ('0' + time.getDate()).slice(-2);
 					const hour = ('0' + (time.getHours() + 5)).slice(-2);
 					const minute = ('0' + time.getMinutes()).slice(-2);
-					const second = time.getSeconds();
+					const second = ('0' + time.getSeconds()).slice(-2);
 					const timestamp = `${year}-${month}-${date}T${hour}:${minute}:${second}.000Z`;
 
 					inquiry.timestamp = timestamp;
